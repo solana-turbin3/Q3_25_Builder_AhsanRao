@@ -12,7 +12,14 @@ const connection = new Connection("https://api.devnet.solana.com", commitment);
 (async () => {
     try {
         // Start here
-        // const mint = ???
+        const mint = await createMint(
+            connection,
+            keypair,
+            keypair.publicKey,
+            null,
+            6, // Number of decimal places
+        );
+        console.log(`Mint created: ${mint.toBase58()}`);
     } catch(error) {
         console.log(`Oops, something went wrong: ${error}`)
     }
